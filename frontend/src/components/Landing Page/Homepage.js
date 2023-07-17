@@ -1,10 +1,15 @@
-import React from "react";
 import "./style.css";
 import Navbar from "./Navbar";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import SearchBar from "./Searchbar";
 import CallMadeRoundedIcon from "@mui/icons-material/CallMadeRounded";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-const div = document.getElementById("myDiv");
+import { Link } from "react-router-dom";
+
+// const div = document.getElementById("myDiv");
+
 // const images = [
 //   "https://plus.unsplash.com/premium_photo-1680100349214-45e2685d4746?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80",
 //   "https://plus.unsplash.com/premium_photo-1674500522724-3d2a371d4c1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1075&q=80",
@@ -20,6 +25,22 @@ const div = document.getElementById("myDiv");
 
 // setInterval(changeBackground, 5000);
 const Homepage = () => {
+  const [suc, setSuc] = useState();
+  const navigate = useNavigate();
+  axios.defaults.withCredentials = true;
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/dashboard")
+      .then((res) => {
+        console.log("dashboad: " + res.data);
+        if (res.data === "Success") {
+          setSuc("Successded OK");
+        } else {
+          navigate("/");
+        }
+      })
+      .catch((err) => console.log(err));
+  }, []);
   return (
     <>
       <div className="navbar">
@@ -46,12 +67,14 @@ const Homepage = () => {
             <h1>Exceptional Properties Located in Stunning Surroundings</h1>
 
             <div>
-              <button className="button1">
-                Show Top-Rated Villas{" "}
-                <CallMadeRoundedIcon
-                  sx={{ fontSize: "15px", paddingLeft: "10px" }}
-                />
-              </button>
+              <Link to="/villa">
+                <button className="button1">
+                  Show Top-Rated Villas
+                  <CallMadeRoundedIcon
+                    sx={{ fontSize: "15px", paddingLeft: "10px" }}
+                  />
+                </button>
+              </Link>
             </div>
           </div>
           <div className="second-div">

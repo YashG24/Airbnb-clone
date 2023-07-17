@@ -1,6 +1,7 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
 const { UserModel } = require("../models/UserModel");
+const { Image } = require("../models/hotelSchema");
 const bcrypt = require("bcrypt");
 
 const UserRouter = express.Router();
@@ -10,30 +11,26 @@ UserRouter.get("/", (req, res) => {
 });
 
 UserRouter.post("/register", async (req, res) => {
-  const { name, email, password, address, phone, cities } = req.body;
-  bcrypt.hash(password, 5, async function (err, hash) {
-    if (err) return res.send({ message: "Something went wrong", status: 0 });
-    try {
-      let user = new UserModel({
-        name,
-        email,
-        password: hash,
-        address,
-        phone,
-        cities,
-      });
-      await user.save();
-      res.send({
-        message: "User Created",
-        status: 1,
-      });
-    } catch (error) {
-      res.send({
-        message: err.message,
-        status: 0,
-      });
-    }
-  });
+  try {
+    const { fname, lname, email, password, address, phone, city } = req.body;
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const newUser = new UserModel({
+      fname,
+      lname,
+      email,
+      password: hashedPassword,
+      address,
+      phone,
+      city,
+    });
+
+    await newUser.save();
+
+    res.send({ message: "User registered successfully", user: newUser });
+  } catch (error) {
+    res.status(500).send({ message: "Registration failed", error });
+  }
 });
 
 UserRouter.post("/login", async (req, res) => {

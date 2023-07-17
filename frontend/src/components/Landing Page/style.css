@@ -1,8 +1,7 @@
 .body {
   display: grid;
   padding: 3rem 3rem;
-  grid-template-columns: 45% 45%;
-  column-gap: 5%;
+  grid-template-columns: 50% 50%;
 }
 .left-side {
   /* border: 1px grey solid; */
@@ -161,17 +160,44 @@
   transform: scale(1.1);
 }
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: white;
-  border-bottom: 1px grey solid;
   height: 70px;
-  width: 100%;
-}
-.heading {
   display: flex;
   flex-direction: row;
-  gap: 60px;
+  width: 100%;
+  border-bottom: 1px lightgray solid;
+  background-color: #f8f8f9;
+}
+.logo {
+  height: 70px;
+  width: 4rem;
+}
+.nav-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 50%;
+  padding-left: 3rem;
+}
+.title {
+  padding-left: 3rem;
+}
+
+.heading {
+  padding-left: 2rem;
+  text-decoration: none;
   text-transform: uppercase;
+  color: black;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 50%;
+  padding-right: 3rem;
+}
+.profile:hover {
+  color: black;
 }

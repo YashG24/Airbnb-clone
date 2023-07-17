@@ -1,0 +1,47 @@
+.cards-flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1rem 3rem;
+}
+.card-img {
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: transform 0.3s ease-in-out;
+
+  .card-img:hover {
+    transform: scale(1.2);
+  }
+}
+
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem 5rem;
+  gap: 1rem;
+}
+.card-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.card-rating {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.25rem;
+  justify-content: center;
+}
+
+.card-title,
+.card-rating p {
+  margin-bottom: 0.2rem;
+}
+.card .swiper-pagination-bullet-active {
+  background-color: white !important;
+}
