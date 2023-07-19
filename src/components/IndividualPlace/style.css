@@ -1,0 +1,202 @@
+body {
+    background-color: whitesmoke;
+    width:800px;
+
+}
+
+/* .main {
+    background-color: white;
+    height: 1400px;
+    width: 1375px;
+    border-radius: 25px;
+} */
+
+.nav {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: whitesmoke;
+    border-bottom: 1px grey solid;
+    height: 70px;
+    width: 1480px;
+  }
+.heading {
+    display: flex;
+    gap: 80px;
+    position: absolute;
+    left: 240px;
+    text-transform: uppercase;
+    
+}
+.logo {
+    margin-left: 50px;
+}
+.topBtn {
+    width: 120px;
+    margin-right: 25px;
+    color: white;
+    padding: 10px;
+    align-items: center;
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+.topBtn:hover {
+    width: 120px;
+    margin-right: 25px;
+    color: black;
+    padding: 10px;
+    align-items: center;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+.hotelname {
+    position: absolute;
+    top: 150px;
+    margin-left: 50px;
+}
+.location {
+    text-align: start;
+    margin-top: 150px;
+    margin-left: 50px;
+    font-size: smaller;
+}
+.price {
+    text-align: start;
+    margin-top: 60px;
+    margin-left: 50px;
+}
+.btn-1 {
+    display: block;
+    width: 300px;
+    font-weight: bold;
+    text-align: start;
+    padding-left: 25px;
+    padding-top: 15px;
+    border: 1px solid grey;
+    border-radius: 50px;
+    padding-bottom: 25px;
+    margin-left: 50px;
+    margin-top: 55px;
+}
+.icon-1 {
+    position: relative;
+    left: 110px;
+    top: 5px;
+}
+.icon-2 {
+    display: flex;
+    margin-left: 60px;
+    margin-top: 50px;
+    gap: 80px;
+}
+.info-1 {
+    position: absolute;
+    top: 530px;
+    left: 45px;
+
+}
+.info-2  {
+    position: absolute;
+    top: 530px;
+    left: 135px;
+}
+.info-3 {
+    position: absolute;
+    top: 530px;
+    left: 235px;
+}
+
+.desc {
+    display: flex;
+    margin-top: 70px;
+    margin-left: 40px;
+    text-align: justify;
+}
+.show {
+    position: absolute;
+    left: 40px;
+}
+ul {
+    list-style-type: none;
+}
+.ul-1 {
+    display: inline;
+    float: left;
+    vertical-align: top;
+    text-align: left;
+    margin-top: 60px;
+}
+.ul-2 {
+    display: inline;
+    text-align: left;
+    float: left;
+    margin-top: 60px;
+    vertical-align: top;
+}
+.review {
+    position: absolute;
+    top: 1050px;
+    left: 50px;
+    margin-left: 40px;
+    font-weight: bold;
+}
+.photos {
+    position: absolute;
+    right: 120px;
+    bottom: 280px;
+    width: 620px;
+    height: 300px;
+}
+#img1 {
+    width: 650px;
+    border-radius: 50px;
+}
+#img2 {
+    width: 300px;
+    display: grid;
+    margin-top: 15px;
+    border-radius: 50px;   
+}
+#img3 {
+    position: absolute;
+    width: 300px;
+    top: 450px;
+    right: -25px;
+    border-radius: 50px;
+}
+#img4 {
+    width: 650px;
+    border-radius: 50px;
+    margin-top: 15px;
+}
+.icon-3 {
+    position: relative;
+    text-align: left;
+    padding-left: 10px;
+    
+}
+.img5 {
+    position: absolute;
+    top: 75px;
+    left: -40px;
+    border-radius: 50%;
+    margin-top: 30px;
+    width: 40px;
+}
+.userName {
+    text-align: start;
+    margin-top: 40px;
+    margin-left: 25px;
+    margin-bottom: 0px;
+    font-size: medium;
+    font-weight: 400;
+}
+.testimonial {
+    text-align: start;
+    width: 500px;
+    margin-left: 25px;
+    font-weight: normal;
+    font-size: smaller;
+}
