@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import Autocomplete from "@mui/material/Autocomplete";
@@ -8,6 +8,7 @@ import "./style.css";
 function Signup() {
   const [fname, setfName] = useState("");
   const [lname, setlName] = useState("");
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [street, setStreet] = useState("");
@@ -51,10 +52,11 @@ function Signup() {
         password,
         address,
         phone,
-        cities: selectedCities,
+        city: selectedCities,
       })
       .then((response) => {
         console.log(response.data);
+        navigate("/login");
       });
   };
 

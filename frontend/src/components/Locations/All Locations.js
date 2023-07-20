@@ -8,8 +8,6 @@ const Locations = () => {
   const [dataList, setDataList] = useState([]);
 
   useEffect(() => {
-    // Fetch data from MongoDB collection
-    // Replace the placeholder URL with your actual backend API URL
     fetch("http://localhost:3001/images")
       .then((response) => response.json())
       .then((data) => setDataList(data))

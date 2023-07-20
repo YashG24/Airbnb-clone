@@ -30,6 +30,11 @@ app.get("/images", async (req, res) => {
   }
 });
 
+app.get(`/images/:id`, async (req, res) => {
+  const { id } = req.params;
+  res.json(await Hotel.findById(id));
+});
+
 app.get("/homepage", (req, res) => {
   res.json("Sucess");
 });

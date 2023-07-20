@@ -1,0 +1,133 @@
+.whole {
+  display: grid;
+  grid-template-columns: 45% 55%;
+  padding: 2rem 3rem;
+}
+.left {
+  border: 1px solid black;
+  min-height: 1000px;
+  padding-top: 2rem;
+}
+.right {
+  border: 1px solid black;
+  min-height: 700px;
+  padding-top: 2rem;
+  padding: 2rem 3rem;
+}
+.property-info {
+  border: 1px solid black;
+  width: 100%;
+}
+.property-availability {
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  justify-content: center;
+  height: 100px;
+}
+.hotel-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 4rem;
+  padding-top: 1rem;
+}
+.hotel-info p {
+  margin-top: 0;
+}
+.room-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.descrpt {
+  border: 1px solid black;
+  padding-top: 1rem;
+}
+.amentity {
+  border: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+}
+.amentity p {
+  flex-basis: 50%;
+}
+.review {
+  border: 1px solid black;
+}
+.review-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.rating {
+  font-size: 1.7rem;
+}
+.no-of-review {
+  font-size: 1.1rem;
+  padding-right: 4rem;
+}
+.review-details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.review-name {
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+.review-name p {
+  margin-top: 0;
+}
+.weather {
+  border: 1px solid black;
+  height: 200px;
+}
+.location {
+  border: 1px solid blue;
+  height: 200px;
+}
+.addons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.images {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 2rem;
+  gap: 2rem;
+}
+.div1 {
+  border: 1px solid black;
+  height: 300px;
+}
+.div2 {
+  border: 1px solid black;
+  height: 300px;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+.div2-1 {
+  border: 1px solid black;
+  width: 50%;
+}
+.div2-2 {
+  border: 1px solid black;
+  width: 50%;
+  overflow: hidden;
+}
+.div3 {
+  border: 1px solid black;
+  height: 300px;
+  overflow: hidden;
+}
+.div-img {
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+}

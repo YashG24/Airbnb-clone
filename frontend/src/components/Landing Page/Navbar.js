@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import AccountCircleSharpIcon from "@mui/icons-material/AccountCircleSharp";
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
+
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -71,7 +72,7 @@ const Navbar = () => {
           <MenuItem component={Link} to="/" onClick={handleClose}>
             Profile
           </MenuItem>
-          <MenuItem component={Link} to="/" onClick={handleClose}>
+          <MenuItem component={Link} to="/details" onClick={handleClose}>
             My account
           </MenuItem>
           <MenuItem component={Link} to="/login" onClick={handleClose}>

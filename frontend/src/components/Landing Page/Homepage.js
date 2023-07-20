@@ -30,9 +30,9 @@ const Homepage = () => {
   axios.defaults.withCredentials = true;
   useEffect(() => {
     axios
-      .get("http://localhost:3001/dashboard")
+      .get("http://localhost:3001")
       .then((res) => {
-        console.log("dashboad: " + res.data);
+        console.log(res.data);
         if (res.data === "Success") {
           setSuc("Successded OK");
         } else {
