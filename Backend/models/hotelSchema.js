@@ -7,6 +7,7 @@ const roomSchema = new mongoose.Schema({
   bedOptions: String,
   sleepsCount: Number,
   smokingAllowed: Boolean,
+  restroom: Number,
 });
 
 const reviewSchema = new mongoose.Schema({
@@ -32,9 +33,12 @@ const hotelSchema = new mongoose.Schema({
   owner: {
     name: String,
     email: String,
+    number: Number,
   },
   parkingIncluded: Boolean,
   rating: Number,
+  latitude: Number,
+  longitude: Number,
   reviews: [reviewSchema],
   address: addressSchema,
   location: String,
