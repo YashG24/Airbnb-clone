@@ -28,7 +28,7 @@ const SearchResults = ({}) => {
   return (
     <div>
       <Navbar />
-      <p>{searchText}</p>
+
       <div className="cards-flex">
         <div className="card-list">
           {dataList

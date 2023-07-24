@@ -56,12 +56,11 @@ const Login = () => {
                 type={showPassword ? "text" : "password"}
                 placeholder="Enter Password"
                 name="password"
-                className="form-control rounded-0"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <div className="inputs">
+            <div className="showPassword">
               <label htmlFor="showPassword">
                 <input
                   type="checkbox"

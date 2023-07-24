@@ -131,3 +131,6 @@ form {
   justify-content: center;
   height: 600px;
 }
+.showPassword {
+  padding-left: 15rem;
+}
