@@ -12,6 +12,7 @@ const Weather = ({ city, apiKey }) => {
         console.error(err);
       } else {
         setWeatherData(data);
+        console.log(weatherData);
       }
     });
   }, [city, apiKey]);
@@ -25,15 +26,16 @@ const Weather = ({ city, apiKey }) => {
         <p className="temp">{weatherData.main.temp.toFixed(1)}°c</p>
       </div>
       <div className="attrb">
+        <p>{weatherData.weather[0].main}</p>
         <div className="head">
           <p>
-            <strong>H:</strong>
+            <strong>High:</strong>
             {weatherData.main.temp_max.toFixed(0)}°c
           </p>
         </div>
         <div className="head">
           <p>
-            <strong>L:</strong>
+            <strong>Low:</strong>
           </p>
           <p> {weatherData.main.temp_min.toFixed(0)}°c</p>
         </div>

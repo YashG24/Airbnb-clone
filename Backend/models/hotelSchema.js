@@ -20,7 +20,7 @@ const reviewSchema = new mongoose.Schema({
 const addressSchema = new mongoose.Schema({
   streetAddress: String,
   city: String,
-  stateProvince: String,
+  state: String,
   postalCode: Number,
   country: String,
 });
