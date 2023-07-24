@@ -14,6 +14,7 @@ import Review from "./Review";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Weather from "./Weather";
+import moment from "moment";
 
 const Details = () => {
   const { id } = useParams();
@@ -24,6 +25,11 @@ const Details = () => {
   const [isShown, setIsShown] = useState(false);
   const handleClick = (event) => {
     setIsShown((current) => !current);
+  };
+  const [dates, setDates] = useState([]);
+  console.log(dates);
+  const booking = () => {
+    alert("Booked");
   };
   const mapUrl = `https://maps.google.com/maps?q=${latitude},${longitude}&hl=us&z=18&output=embed`;
   const key = "06b744e0e888b212e663ffb1421d464b";
@@ -69,9 +75,19 @@ const Details = () => {
                           localeText={{ start: "Check-in", end: "Check-out" }}
                           invalid={{ start: "2023-07-21", end: "2023-07-23" }}
                           disablePast="true"
+                          onChange={(values) => {
+                            setDates(
+                              values.map((item) => {
+                                return moment(item).format("DD-MM-YYYY");
+                              })
+                            );
+                          }}
                         />
                       </DemoContainer>
                     </LocalizationProvider>
+                    <button className="book" onClick={booking}>
+                      Book Now
+                    </button>
                   </div>
                 )}
               </div>

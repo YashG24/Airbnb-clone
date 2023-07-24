@@ -45,6 +45,7 @@ const hotelSchema = new mongoose.Schema({
   rooms: [roomSchema],
   amenities: [String],
   links: [String],
+  dates: [Number],
 });
 
 const Hotel = mongoose.model("hotels", hotelSchema);

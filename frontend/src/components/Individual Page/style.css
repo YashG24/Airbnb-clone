@@ -39,6 +39,10 @@
     padding-bottom: 25px;
     margin-top: 35px;
 }
+#btn-1:hover {
+  background-color: black;
+  color: whitesmoke;
+}
 .icon-1 {
   position: relative;
   left: 110px;
@@ -47,6 +51,21 @@
 .dateRange {
   margin-top: 50px;
   margin-bottom: 20px;
+}
+.book {
+  margin-top: 50px;
+  width: 100px;
+    font-weight: bold;
+    text-align: center;
+    padding-left: 25px;
+    padding-top: 15px;
+    border: 1px solid grey;
+    border-radius: 50px;
+    padding: 15px;
+}
+.book:hover {
+  background-color: black;
+  color: whitesmoke;
 }
 .hotel-info {
   display: flex;
