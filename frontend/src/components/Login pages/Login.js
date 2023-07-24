@@ -7,6 +7,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -52,13 +53,25 @@ const Login = () => {
                 <strong>Password</strong>
               </label>
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 placeholder="Enter Password"
                 name="password"
                 className="form-control rounded-0"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+            </div>
+            <div className="inputs">
+              <label htmlFor="showPassword">
+                <input
+                  type="checkbox"
+                  name="showPassword"
+                  checked={showPassword}
+                  className="form-control rounded-0"
+                  onChange={() => setShowPassword(!showPassword)}
+                />
+                Show Password
+              </label>
             </div>
             <div className="footer">
               <button type="submit" className="button">
