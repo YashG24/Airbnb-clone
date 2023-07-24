@@ -5,6 +5,11 @@ import AttributionOutlinedIcon from "@mui/icons-material/AttributionOutlined";
 import KingBedTwoToneIcon from "@mui/icons-material/KingBedTwoTone";
 import BathtubTwoToneIcon from "@mui/icons-material/BathtubTwoTone";
 import StarRateRoundedIcon from "@mui/icons-material/StarRateRounded";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import { LocalizationProvider } from "@mui/x-date-pickers-pro";
+import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
+import { DateRangePicker } from "@mui/x-date-pickers-pro/DateRangePicker";
 import Review from "./Review";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -16,6 +21,10 @@ const Details = () => {
   const [place, setPlace] = useState(null);
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
+  const [isShown, setIsShown] = useState(false);
+  const handleClick = (event) => {
+    setIsShown((current) => !current);
+  };
   const mapUrl = `https://maps.google.com/maps?q=${latitude},${longitude}&hl=us&z=18&output=embed`;
   const key = "06b744e0e888b212e663ffb1421d464b";
   useEffect(() => {
@@ -45,7 +54,27 @@ const Details = () => {
                   <strong>₹{place.Rooms[2].BaseRate}</strong> /night
                 </span>
               </div>
-              <div className="property-availability"></div>
+              <div className="property-availability">
+                <button id="btn-1" onClick={handleClick}>
+                  Check Availability{" "}
+                  <span className="icon-1">
+                    <CalendarMonthIcon />
+                  </span>
+                </button>
+                {isShown && (
+                  <div className="dateRange">
+                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                      <DemoContainer components={["DateRangePicker"]}>
+                        <DateRangePicker
+                          localeText={{ start: "Check-in", end: "Check-out" }}
+                          invalid={{ start: "2023-07-21", end: "2023-07-23" }}
+                          disablePast="true"
+                        />
+                      </DemoContainer>
+                    </LocalizationProvider>
+                  </div>
+                )}
+              </div>
               <div className="hotel-info">
                 <div className="room-details">
                   <AttributionOutlinedIcon sx={{ fontSize: "2rem" }} />
