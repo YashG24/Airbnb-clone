@@ -19,7 +19,7 @@ const Card = ({ data }) => {
             mousewheel={true}
             cssMode={true}
             pagination
-            navigation={true}
+            navigation
             modules={[Pagination, Navigation]}
             className="swiper-container"
           >

@@ -24,6 +24,7 @@ const SearchBar = () => {
           onChange={handleSearchChange}
           placeholder="Find Inspiring Places.."
           className="search-input"
+          required
         />
         <button type="submit" className="search-button">
           <SearchRoundedIcon />
