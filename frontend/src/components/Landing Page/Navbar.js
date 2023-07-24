@@ -3,6 +3,8 @@ import logo from "../../images/logo.png";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import AccountCircleSharpIcon from "@mui/icons-material/AccountCircleSharp";
@@ -13,6 +15,7 @@ const Navbar = () => {
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -20,7 +23,7 @@ const Navbar = () => {
     <div className="navbar">
       <div className="nav-left">
         <div className="logo">
-          <Link to="/">
+          <Link to="/homepage">
             <img src={logo} alt="Not working" className="logo"></img>
           </Link>
         </div>
@@ -69,14 +72,14 @@ const Navbar = () => {
             },
           }}
         >
-          <MenuItem component={Link} to="/" onClick={handleClose}>
+          <MenuItem component={Link} to="/homepage" onClick={handleClose}>
             Profile
           </MenuItem>
           <MenuItem component={Link} to="/details" onClick={handleClose}>
-            My account
+            My Bookings
           </MenuItem>
-          <MenuItem component={Link} to="/login" onClick={handleClose}>
-            Login
+          <MenuItem component={Link} to="/" onClick={handleClose}>
+            Log Out
           </MenuItem>
         </Menu>
       </div>

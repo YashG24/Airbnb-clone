@@ -8,13 +8,21 @@ import StarRateRoundedIcon from "@mui/icons-material/StarRateRounded";
 import Review from "./Review";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import Weather from "./Weather";
 
 const Details = () => {
   const { id } = useParams();
+
   const [place, setPlace] = useState(null);
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
+  const mapUrl = `https://maps.google.com/maps?q=${latitude},${longitude}&hl=us&z=18&output=embed`;
+  const key = "06b744e0e888b212e663ffb1421d464b";
   useEffect(() => {
     axios.get(`http://localhost:3001/images/${id}`).then((response) => {
       setPlace(response.data);
+      setLatitude(response.data.Latitude);
+      setLongitude(response.data.Longitude);
     });
   });
 
@@ -34,7 +42,7 @@ const Details = () => {
                   {place.Address.Country}
                 </p>
                 <span>
-                  <strong>₹{place.Rooms[2].BaseRate}</strong>/night
+                  <strong>₹{place.Rooms[2].BaseRate}</strong> /night
                 </span>
               </div>
               <div className="property-availability"></div>
@@ -90,19 +98,22 @@ const Details = () => {
           </div>
           <div className="right">
             <div className="addons">
-              <div className="weather">
-                <div>Temp:</div>
+              <div className="weather-tab">
+                <div>
+                  <Weather city={place.Address.City} apiKey={key} />
+                </div>
               </div>
               <div className="location">
                 <iframe
+                  title="Map"
                   width="350"
                   height="200"
                   frameborder="0"
                   marginheight="0"
                   marginwidth="0"
-                  src="https://maps.google.com/maps?q=26.9124,75.7973&hl=us&z=16&amp;output=embed"
+                  src={mapUrl}
                   allowfullscreen="true"
-                ></iframe>
+                />
               </div>
             </div>
             <div className="images">
@@ -136,8 +147,8 @@ const Details = () => {
         <div>Get in Touch</div>
         <div className="divide">
           <p>Owner Name: {place.Owner.Name}</p>
-          <p>{place.Owner.Email}</p>
-          <p>+91 {place.Owner.Number}</p>
+          <p>Email: {place.Owner.Email}</p>
+          <p>Contact: +91 {place.Owner.Number}</p>
         </div>
       </div>
     </>

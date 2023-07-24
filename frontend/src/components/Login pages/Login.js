@@ -6,6 +6,7 @@ import "./style.css";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -13,15 +14,22 @@ const Login = () => {
     axios
       .post("http://localhost:3001/user/login", { email, password })
       .then((res) => {
-        console.log("login: " + res.data);
-        navigate("/");
+        if (res.data.status === 1) {
+          console.log("log in successful");
+          alert("User logged in successfully");
+          navigate("/homepage");
+        } else if (res.data.status === 0) {
+          alert("Incorrect password");
+        } else {
+          setErrorMessage("User does not exist");
+        }
       })
       .catch((err) => console.log(err));
   };
 
   return (
     <div>
-      <div className="container">
+      <div className="containers">
         <div className="wrapper">
           <h1>Login</h1>
           <form onSubmit={handleSubmit}>
@@ -57,6 +65,7 @@ const Login = () => {
                 Login
               </button>
             </div>
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
           </form>
           <div className="footer">
             <p>Don't have an account?</p>

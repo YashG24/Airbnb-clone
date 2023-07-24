@@ -83,8 +83,38 @@
   margin-top: 0;
 }
 .weather {
-  border: 1px solid black;
   height: 200px;
+  padding: 0rem 2rem;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  color: white;
+  border-radius: 15px;
+  background-image: linear-gradient(
+    to right bottom,
+    #163056,
+    #005a84,
+    #00858c,
+    #00ab67,
+    #97c724
+  );
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0);
+}
+.weather > p {
+  margin-bottom: 10px;
+}
+
+.temp {
+  font-size: 30px;
+  margin-top: 0;
+  font-weight: 600;
+}
+.attrb {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  gap: 20px;
+}
+.head {
 }
 .location {
   height: 200px;
@@ -92,6 +122,7 @@
 .addons {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  column-gap: 5%;
 }
 .images {
   display: flex;
@@ -150,7 +181,7 @@
   list-style: none;
   color: #767676;
 }
-ul li:before {
+ul > li:before {
   content: "✓"; /* Replace with any custom text or Unicode character */
   margin-right: 5px;
 
@@ -160,20 +191,11 @@ ul li:before {
   text-align: center;
   font-weight: 600;
   padding-top: 10px;
-  background-color: #f8f8f9;
+  background-color: #333;
+  color: white;
 }
 .divide {
   display: flex;
   font-weight: 400;
   justify-content: space-evenly;
-}
-.weather-card {
-  display: flex;
-  justify-content: space-between;
-}
-.main {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }

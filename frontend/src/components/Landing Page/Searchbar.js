@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
+import { useNavigate } from "react-router-dom";
 
 const SearchBar = () => {
   const [searchText, setSearchText] = useState("");
+  const navigate = useNavigate();
 
   const handleSearchChange = (event) => {
     setSearchText(event.target.value);
@@ -10,8 +12,7 @@ const SearchBar = () => {
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();
-    // Perform search logic or pass searchText to parent component
-    console.log("Search text:", searchText);
+    navigate(`/search-results/${searchText}`);
   };
 
   return (

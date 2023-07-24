@@ -55,8 +55,12 @@ function Signup() {
         city: selectedCities,
       })
       .then((response) => {
-        console.log(response.data);
-        navigate("/login");
+        if (response.data.message === "User registered successfully") {
+          alert("User created successfully");
+          navigate("/");
+        } else {
+          console.log("Enter correct details");
+        }
       });
   };
 
@@ -226,7 +230,7 @@ function Signup() {
         </form>
         <div className="footer">
           <p className="mt-2">Already Have an Account ?</p>
-          <Link to="/login" className="link">
+          <Link to="/" className="link">
             Click Here
           </Link>
         </div>

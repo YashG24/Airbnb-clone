@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
     message: "API is working fine",
   });
 });
-
+//cards
 app.get("/images", async (req, res) => {
   try {
     const allData = await Hotel.find({});
@@ -29,14 +29,15 @@ app.get("/images", async (req, res) => {
     console.log(error);
   }
 });
-
+//individual page
 app.get(`/images/:id`, async (req, res) => {
   const { id } = req.params;
   res.json(await Hotel.findById(id));
 });
+//Search
 
 app.get("/homepage", (req, res) => {
-  res.json("Sucess");
+  res.json("Success");
 });
 
 app.listen(port, async () => {

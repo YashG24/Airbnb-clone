@@ -10,7 +10,7 @@ import StarRateRoundedIcon from "@mui/icons-material/StarRateRounded";
 const Card = ({ data }) => {
   return (
     <div className="card">
-      <Link to={`/details/` + data._id}>
+      <Link className="link" to={`/details/` + data._id}>
         <div className="card-img">
           <Swiper
             slidesPerView={1}
@@ -19,7 +19,7 @@ const Card = ({ data }) => {
             mousewheel={true}
             cssMode={true}
             pagination
-            navigation
+            navigation={true}
             modules={[Pagination, Navigation]}
             className="swiper-container"
           >
@@ -32,17 +32,18 @@ const Card = ({ data }) => {
         </div>
         <div>
           <div className="card-info">
-            <h3 className="card-title">{data.HotelName}</h3>
+            <p className="card-title">{data.HotelName}</p>
             <div className="card-rating">
               <h4>{data.Rating}</h4>
               <StarRateRoundedIcon />
             </div>
           </div>
-
-          <p style={{ margin: 0 }}>
-            <strong>₹{data.Rooms[0].BaseRate}</strong>/night
-          </p>
-          <p style={{ margin: 0 }}>{data.Category}</p>
+          <div className="sub-detail">
+            <p style={{ margin: 0 }}>
+              <strong>₹{data.Rooms[0].BaseRate}</strong> /night
+            </p>
+            <p style={{ margin: 0 }}>{data.Category}</p>
+          </div>
         </div>
       </Link>
     </div>

@@ -2,11 +2,11 @@ import "./style.css";
 import Navbar from "./Navbar";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import SearchBar from "./Searchbar";
 import CallMadeRoundedIcon from "@mui/icons-material/CallMadeRounded";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // const div = document.getElementById("myDiv");
 
@@ -25,22 +25,31 @@ import { Link } from "react-router-dom";
 
 // setInterval(changeBackground, 5000);
 const Homepage = () => {
-  const [suc, setSuc] = useState();
-  const navigate = useNavigate();
   axios.defaults.withCredentials = true;
   useEffect(() => {
     axios
       .get("http://localhost:3001")
       .then((res) => {
         console.log(res.data);
-        if (res.data === "Success") {
-          setSuc("Successded OK");
-        } else {
-          navigate("/");
-        }
       })
       .catch((err) => console.log(err));
   }, []);
+
+  const [searchText, setSearchText] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearchChange = (event) => {
+    setSearchText(event.target.value);
+  };
+
+  const handleSearchSubmit = (event) => {
+    event.preventDefault();
+    // Perform search logic or pass searchText to parent component
+    console.log("Search text:", searchText);
+    // Navigate to SearchResults component with the search text as a parameter
+    navigate(`/search-results/${searchText}`);
+  };
+
   return (
     <>
       <div className="navbar">
@@ -59,7 +68,11 @@ const Homepage = () => {
             </p>
           </div>
           <div>
-            <SearchBar />
+            <SearchBar
+              searchText={searchText}
+              handleSearchChange={handleSearchChange}
+              handleSearchSubmit={handleSearchSubmit}
+            />
           </div>
         </div>
         <div className="right-side">

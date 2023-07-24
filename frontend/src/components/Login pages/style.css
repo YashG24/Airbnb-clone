@@ -121,3 +121,13 @@ form {
   align-items: center;
   gap: 1rem;
 }
+.containers {
+  background-image: url("https://images.unsplash.com/photo-1640690821275-c6aa1e1ccee3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80");
+  background-size: cover;
+  background-position: center;
+  padding: 5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 600px;
+}
